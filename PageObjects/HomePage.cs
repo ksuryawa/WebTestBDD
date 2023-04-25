@@ -27,7 +27,6 @@ public class HomePage : BasePage
         
         for (int i = 0; i < itemCount && i < items.Count; i++)
         {
-            //items[random.Next(items.Count)].Click();
             items[GenerateUniqueRandomData.GetUniqueNumber(items.Count)].Click();
         }
     }

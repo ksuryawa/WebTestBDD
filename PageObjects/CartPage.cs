@@ -48,7 +48,7 @@ public class CartPage : BasePage
                     .Text
                     .Replace("$", "");
                 var price = float.Parse(oldPrice);
-                //int.Parse(oldPrice);
+                
                 if (price < minPrice)
                 {
                     minPrice = price;
