@@ -24,6 +24,8 @@ public class WebTestSteps
             //_homePage.Navigate(AppSettings.ApplicationUrl);
             _homePage.Navigate("https://cms.demo.katalon.com/");
             
+            //Assert Header
+            _homePage.AssertHeader("Shop");
             // Add Random items
             _homePage.AddRandomItemsToCart(4);
         }
@@ -31,8 +33,12 @@ public class WebTestSteps
         [When(@"I view my cart")]
         public void WhenIViewMyCart()
         {
+            
             // Navigate to cart page
             _homePage.ViewCart();
+            
+            //Assert Header
+            _homePage.AssertHeader("Cart");
         }
 
         [Then(@"I should see four items in my cart")]
