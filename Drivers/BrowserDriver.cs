@@ -26,21 +26,17 @@ namespace WebTestBDD.Drivers
             public IWebDriver Current => _currentWebDriverLazy.Value;
 
             /// <summary>
-            /// Creates the Selenium web driver (opens a browser)
+            /// Creates the Selenium webdriver (opens a browser)
             /// </summary>
             /// <returns></returns>
             private IWebDriver CreateWebDriver()
             {
                 //We use the Chrome browser
                 new DriverManager().SetUpDriver(new ChromeConfig(),VersionResolveStrategy.MatchingBrowser);
-                
                 var chromeDriverService = ChromeDriverService.CreateDefaultService();
-
                 var chromeOptions = new ChromeOptions();
-                    chromeOptions.AddArgument("start-maximised");
-                
+                chromeOptions.AddArgument("start-maximised");
                 var chromeDriver = new ChromeDriver(chromeDriverService, chromeOptions);
-                
                 return chromeDriver;
             }
 

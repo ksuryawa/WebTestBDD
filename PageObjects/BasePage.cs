@@ -3,7 +3,9 @@ using OpenQA.Selenium;
 
 namespace WebTestBDD.PageObjects;
 
-
+/// <summary>
+/// Base Page Object
+/// </summary>
 public abstract class BasePage
 {
     private readonly IWebDriver _driver;

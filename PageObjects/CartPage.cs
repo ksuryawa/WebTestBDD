@@ -2,7 +2,9 @@ using OpenQA.Selenium;
 
 namespace WebTestBDD.PageObjects;
 
-
+/// <summary>
+/// Page Object for CartPage
+/// </summary>
 public class CartPage : BasePage
 {
     //The Selenium web driver to automate the browser

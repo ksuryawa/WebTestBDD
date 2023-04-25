@@ -5,6 +5,9 @@ using WebTestBDD.Drivers;
 
 namespace WebTestBDD.Hooks
 {
+    /// <summary>
+    /// Hooks to launch browser
+    /// </summary>
     [Binding]
     public class Hooks
     {
