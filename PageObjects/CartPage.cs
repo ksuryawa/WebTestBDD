@@ -21,6 +21,8 @@ public class CartPage : BasePage
     private readonly By _trTotalCartRow =
         By.XPath("//table[@class='shop_table shop_table_responsive cart woocommerce-cart-form__contents']/tbody/tr");
 
+    private readonly By _trQuantity =
+        By.XPath("//*[@class='product-quantity']/div/input");
     private readonly By _tdRemoveButton = By.XPath("//td[@class='product-remove']/a");
     private readonly By _tdPrice = By.XPath("//td[@class='product-remove']/following-sibling::td[3]");
     #endregion
@@ -29,8 +31,20 @@ public class CartPage : BasePage
 
     public int GetCartItemCount()
     {
-        var itemList = _driver.FindElements(_trTotalCartRow);
-        return itemList.Count - 1;
+        /*var itemList = _driver.FindElements(_trTotalCartRow);
+        return itemList.Count - 1;*/
+
+        int totalNoOfItemsInCart = 0;
+        var listOfQuantity = _driver.FindElements(_trQuantity);
+        if (listOfQuantity.Count > 0)
+        {
+            foreach (var quantity in listOfQuantity)
+            {
+                totalNoOfItemsInCart= totalNoOfItemsInCart + int.Parse(quantity.GetAttribute("value"));
+            }
+        }
+
+        return totalNoOfItemsInCart;
     }
 
     public void SearchForLowestPriceItem()
